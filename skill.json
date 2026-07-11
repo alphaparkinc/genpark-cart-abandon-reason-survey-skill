@@ -1,0 +1,47 @@
+{
+  "name": "genpark-cart-abandon-reason-survey-skill",
+  "version": "1.0.0",
+  "description": "GenPark AI Agent Skill - Analyze user exit feedback from abandoned carts and output dynamic recovery voucher discounts.",
+  "author": "genpark",
+  "category": "retention",
+  "tags": [
+    "cart-abandonment",
+    "customer-feedback",
+    "recovery-coupons",
+    "churn",
+    "retention"
+  ],
+  "inputs": {
+    "reason_code": {
+      "type": "string",
+      "enum": [
+        "shipping_cost",
+        "pricing",
+        "delivery_time",
+        "technical_issue",
+        "just_browsing"
+      ],
+      "description": "Primary checkout dropout reason."
+    },
+    "cart_subtotal": {
+      "type": "number",
+      "description": "Abandoned cart total value in USD."
+    }
+  },
+  "outputs": {
+    "recovery_strategy": {
+      "type": "string",
+      "description": "Assigned customer recovery campaign action."
+    },
+    "suggested_coupon_code": {
+      "type": "string",
+      "description": "Target discount coupon code generated."
+    },
+    "max_discount_allowed": {
+      "type": "number",
+      "description": "Maximum coupon discount in USD."
+    }
+  },
+  "entrypoint": "client.py",
+  "example": "example_usage.py"
+}
